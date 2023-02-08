@@ -32,14 +32,16 @@
             }
         };
 
-        function impElem(elem) {
+        function impElem(elem, ind) {
             if (elem == null) return;
             console.log(elem.text);
-            impElem(elem.hijo1);
-            impElem(elem.hijo2);
+            console.log(ind);
+
+            impElem(elem.hijo1, ind+2);
+            impElem(elem.hijo2, ind+2);
         }
 
-        impElem(estructura);
+        impElem(estructura, 0);
     </script>
 </body>
 
