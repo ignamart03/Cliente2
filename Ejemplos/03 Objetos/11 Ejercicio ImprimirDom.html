@@ -25,22 +25,26 @@
     <script>
         let estructura = {
             text: "Esto es div 1",
-            hijo1: { text: "Y este es el primer hijo del 1",hijo1: { text: "Yo soy el nieto", hijo1: null, hijo2: null }, hijo2: null },
+            hijo1: { 
+                text: "Y este es el primer hijo del 1", 
+                hijo1: { text: "Yo soy el nieto", hijo1: null, hijo2: null }, 
+                hijo2: null
+            },
             hijo2: {
                 text: "YO el segundo, pero soy mejor, tengo un nieto",
-                hijo1: { text: "Yo soy el nieto", hijo1: null, hijo2: null }, hijo2: null
+                hijo1: { text: "Yo soy el nieto", hijo1: null, hijo2: null }, 
+                hijo2: null
             }
         };
 
         function impElem(elem, ind) {
-            if (elem == null) return;
-            console.log(elem.text);
-            console.log(ind);
-            impElem(elem.hijo1, ind+2);
-            impElem(elem.hijo2, ind+2);
+            if (elem == null) return null;
+            j = "<div>" + elem.text;
+            j += impElem(elem.hijo1, ind+2);
+            j += impElem(elem.hijo2, ind+2);
+            return j + "</div>";
         }
-
-        impElem(estructura, 0);
+        console.log(impElem(estructura, 0))
     </script>
 </body>
 
