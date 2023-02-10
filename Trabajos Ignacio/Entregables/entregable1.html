@@ -1,12 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Entregable1</title>
+    <script>
+        //Funciones Entregable1
+        function arrayALista(elem) {
+            if (elem == null) return null;
+            let lista = {
+                nombre: elem[0],
+                nota: null,
+                sig: {
+                    alumno: elem[1],
+                    nota: null,
+                    sig: {
+                        nombre: elem[2],
+                        nota: null,
+                        sig: null
+                    }
+                }
+            }
+            return lista;
+        }
+
+        function listaAArray2(obj) {
+            j = [obj.nombre, obj.sig.alumno, obj.sig.sig.nombre];
+            return j;
+        }
+
+        function personaN(n) {
+            
+        }
+
+        let lista = {
+            nombre: "Marta",
+            nota: null,
+            sig: {
+                alumno: "Jorge",
+                nota: null,
+                sig: {
+                    nombre: "Aitor",
+                    nota: "null",
+                    sig: null
+                }
+            }
+        }
+
+        let arrayNombres = ["Marta", "Jorge", "Aitor"];
+
+        console.log(listaAArray2(lista));
+
+
+    </script>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
