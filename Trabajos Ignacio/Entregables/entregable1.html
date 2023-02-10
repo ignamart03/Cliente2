@@ -9,19 +9,13 @@
     <script>
         //Funciones Entregable1
         function arrayALista(elem) {
-            if (elem == null) return null;
-            let lista = {
-                nombre: elem[0],
-                nota: null,
-                sig: {
-                    alumno: elem[1],
-                    nota: null,
-                    sig: {
-                        nombre: elem[2],
-                        nota: null,
-                        sig: null
-                    }
-                }
+            let lista = {};
+            let p = lista;
+            for (i = 0; i < elem.length; ++i) {
+                p.nombre = elem[i];
+                p.nota = null;
+                p.sig = i == elem.length ? null : {};
+                p = p.sig;
             }
             return lista;
         }
@@ -32,7 +26,7 @@
         }
 
         function personaN(n) {
-            
+
         }
 
         let lista = {
