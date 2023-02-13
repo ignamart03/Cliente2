@@ -21,19 +21,70 @@
         }
 
         function listaAArray2(obj) {
-            j = [obj.nombre, obj.sig.alumno, obj.sig.sig.nombre];
-            return j;
+            let result = [];
+            let current = lista;
+
+            while (current) {
+                result.push(current.nombre);
+                current = current.sig;
+            }
+
+            return result;
         }
 
-        function personaN(n) {
+        function listaAArray2(obj) {
+            let result = [];
+            //Bucle while que se ejecutará siempre y cuando el valor de obj sea truthy, es decir no sea null, undefined, false, 0, NaN o string vacio
+            while (obj) {
+                result.push(obj.nombre);
+                obj = obj.sig;
+            }
 
+            return result;
         }
 
+        function personaN(lista, n) {
+            if (!lista || n < 0) {
+                return null;
+            }
+            else if (n === 0) {
+                return { nombre: lista.nombre, nota: lista.nota };
+            }
+            else {
+                return personaN(lista.sig, n - 1);
+            }
+        }
+
+        function modifNota(lista, n, nota) {
+            if (!lista || n < 0) {
+                return null;
+            }
+
+            if (n === 0) {
+                lista.nota = nota;
+                return;
+            }
+
+            return modifNota(lista.sig, n - 1, nota);
+        }
+
+        function añadir(lista, alumno) {
+            let nuevaLista = {
+                nombre: alumno.nombre,
+                nota: alumno.nota,
+                sig: lista
+            };
+
+            return nuevaLista;
+        }
+        
+
+        //Creacion de variables
         let lista = {
             nombre: "Marta",
             nota: null,
             sig: {
-                alumno: "Jorge",
+                nombre: "Jorge",
                 nota: null,
                 sig: {
                     nombre: "Aitor",
@@ -43,7 +94,9 @@
             }
         }
         let arrayNombres = ["Marta", "Jorge", "Aitor"];
-        console.log(listaAArray2(lista));
+
+        modifNota(lista, 2, 6)
+        console.log(personaN(lista, 2));
 
 
     </script>
