@@ -19,7 +19,7 @@
             }
             return padre;
         };
-
+        //Funcion que busca dentro de la lista un nodo recibiendo como parámetros la lista y el nombre del nodo a buscar
         function buscar(lista, nombre) {
             if (lista.nombre === nombre) {
                 return lista;
@@ -33,8 +33,8 @@
                 return null;
             }
         };
-
-        function buscarIndice(lista, nombre){
+        //Funcion buscarIndice, similar a buscar(lista, nombre). La diferencia se haya en que en vez de devolverte el objeto, te devuleve el indice del objeto (como de bajo esta en el árbol).
+        function buscarIndice(lista, nombre) {
             if (lista.nombre === nombre) {
                 return 0;
             } else {
@@ -48,26 +48,32 @@
             }
         }
 
-        function añadirHijo(nodo) {
-            return nodo.hijos.push(crearNodoPadre());
+        //Funcion para añadir un hijo
+        function añadirHijo(nodo, nodoHijo) {
+            nodo.hijos.push(nodoHijo);
         };
 
-        function eliminarHijo(nodo) {
-            return nodo.hijos.splice(buscar());
+        //Funcion para eliminar un hijo 
+        function eliminarHijo(nodo, nodoHijo) {
+            nodo.hijos.splice(nodoHijo);
         };
 
+        //Funcion para listar el objeto de árbol
         function ListarArbol(lista) {
-
+            return lista;
         };
 
+        //Funcion para convertir el nodo a JSON
         function convertirAJSON(nodo) {
-
+            return JSON.stringify(nodo)
         };
 
+        //Funcion que recibe un string y devuleve un objeto en javascript
         function leerJSON(String) {
-
+            return JSON.parse(String);
         };
 
+        //Ejemplo de árbol genealógico.
         let padre = {
             nombre: "Javier",
             añoNacim: 1923,
@@ -82,7 +88,7 @@
                     conyuge: "Pepa",
                     añoNacConyuge: 1940,
                     hijos: []
-                }, 
+                },
                 "hola"
             ]
         }
@@ -91,7 +97,8 @@
         //console.log(buscar(crearNodoPadre(), nombre2));
         // console.log(añadirHijo(padre));
         // añadirHijo(padre);
-        console.log(buscarIndice(padre, nombre2));
+        //console.log(buscarIndice(padre, nombre2));
+        console.log(ListarArbol(padre));
 
     </script>
 </head>
