@@ -22,18 +22,6 @@
 
         function listaAArray2(obj) {
             let result = [];
-            let current = lista;
-
-            while (current) {
-                result.push(current.nombre);
-                current = current.sig;
-            }
-
-            return result;
-        }
-
-        function listaAArray2(obj) {
-            let result = [];
             //Bucle while que se ejecutará siempre y cuando el valor de obj sea truthy, es decir no sea null, undefined, false, 0, NaN o string vacio
             while (obj) {
                 result.push(obj.nombre);
@@ -79,22 +67,23 @@
         }
         
 
-        //Creacion de variables
-        // let lista = {
-        //     nombre: "Marta",
-        //     nota: null,
-        //     sig: {
-        //         nombre: "Jorge",
-        //         nota: null,
-        //         sig: {
-        //             nombre: "Aitor",
-        //             nota: "null",
-        //             sig: null
-        //         }
-        //     }
-        // }
-        // let arrayNombres = ["Marta", "Jorge", "Aitor"];
+       // Creacion de variables
+         let lista = {
+             nombre: "Marta",
+             nota: null,
+             sig: {
+                 nombre: "Jorge",
+                 nota: null,
+                 sig: {
+                     nombre: "Aitor",
+                     nota: "null",
+                     sig: null
+                 }
+             }
+         }
+         let arrayNombres = ["Marta", "Jorge", "Aitor"];
         
+         console.log(personaN(lista,2))
         // modifNota(lista, 2, 6)
         // console.log(personaN(lista, 2));
 
