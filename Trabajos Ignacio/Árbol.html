@@ -39,7 +39,7 @@
                 return 0;
             } else {
                 for (let i = 0; i < lista.hijos.length; i++) {
-                    const result = buscar(nombre, lista.hijos[i]);
+                    const result = buscarIndice(nombre, lista.hijos[i]);
                     if (result) {
                         return i;
                     }
@@ -49,13 +49,14 @@
         }
 
         //Funcion para añadir un hijo
-        function añadirHijo(nodo, nodoHijo) {
+        function añadirHijo(nodo, nodoHijo, lista) {
             nodo.hijos.push(nodoHijo);
         };
 
         //Funcion para eliminar un hijo 
-        function eliminarHijo(nodo, nodoHijo) {
-            nodo.hijos.splice(nodoHijo);
+        function eliminarHijo(nodoPadre, lista, nombreHijo) {
+            let indice = buscarIndice(lista, nombreHijo);
+            nodoPadre.hijos.slice(indice, 1);
         };
 
         //Funcion para listar el objeto de árbol
@@ -64,7 +65,7 @@
         };
 
         //Funcion para convertir el nodo a JSON
-        function convertirAJSON(nodo) {
+        function convertirAJSON(nodo, lista) {
             return JSON.stringify(nodo)
         };
 
@@ -88,8 +89,7 @@
                     conyuge: "Pepa",
                     añoNacConyuge: 1940,
                     hijos: []
-                },
-                "hola"
+                }
             ]
         }
         nombre2 = "Javier";
@@ -98,6 +98,7 @@
         // console.log(añadirHijo(padre));
         // añadirHijo(padre);
         //console.log(buscarIndice(padre, nombre2));
+        eliminarHijo(padre, padre, "Pepe");
         console.log(ListarArbol(padre));
 
     </script>
