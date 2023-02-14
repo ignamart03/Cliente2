@@ -61,15 +61,7 @@
         const A = ciudades.filter(e => e.ApeAl[0] == "M");
         const B = ciudades.reduce((a, v) => a + v.poblacion, 0);
         // const C = ciudades.map(e => e.ciudad).sort();
-        const C = ciudades.sort(ciudades.ciudad);
-        const D = ciudades.sort((a, v) => a.ApeAl < v.ApeAl);
-        const E = ciudades.map(e => { return {} });
-        const F = ciudades.reduce((a, v) => a + v.ciudad + ", ", "");
-
-        //console.log(C);
-
-        function sortByCityName(ciudades) {
-            const sortedArray = ciudades.sort((a, b) => {
+        const C = ciudades.sort((a, b) => {
                 if (a.ciudad < b.ciudad) {
                     return -1;
                 }
@@ -78,10 +70,11 @@
                 }
                 return 0;
             });
+        const D = ciudades.sort((a, v) => a.ApeAl < v.ApeAl);
+        const E = ciudades.map(e => { return {} });
+        const F = ciudades.reduce((a, v) => a + v.ciudad + ", ", "");
+        console.log(sortedArray);
 
-            console.log(sortedArray);
-        }
-        sortByCityName(ciudades);
 
     </script>
 </head>
