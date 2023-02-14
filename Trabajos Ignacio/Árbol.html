@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árbol</title>
+    <script>
+        let arbol = {
+            nombre: "",
+            añoNacim: 0,
+            sexo: "",
+            conyuge: "",
+            añoNacConyuge: 0,
+            hijos: []
+        }
+
+        let lista2 = {
+                nombre: "Javier",
+                añoNacim: 1923,
+                sexo: "Masculino",
+                conyuge: "Milagros",
+                añoNacConyuge: 1940,
+                hijos: []
+            }
+
+        const crearNodoPadre = (e => {
+            var padre = {
+                nombre: "Javier",
+                añoNacim: 1923,
+                sexo: "Masculino",
+                conyuge: "Milagros",
+                añoNacConyuge: 1940,
+                hijos: []
+            }
+            return padre;
+        });
+        
+        const buscar = ((lista, nombre, año) => {
+            const A = lista.reduce((a, v) => 
+            e.nombre == nombre);
+            return A;
+        });
+        nombre2 = "Javier";
+        console.log(buscar(lista2, nombre2));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
