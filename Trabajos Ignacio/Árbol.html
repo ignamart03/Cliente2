@@ -54,10 +54,23 @@
         };
 
         //Funcion para eliminar un hijo 
-        function eliminarHijo(nodoPadre, lista, nombreHijo) {
-            let indice = buscarIndice(lista, nombreHijo);
-            nodoPadre.hijos.slice(indice, 1);
-        };
+        // function eliminarHijo(lista, nombreHijo) {
+
+        //     if () {
+
+        //     }
+
+        //     let indice = buscarIndice(lista, nombreHijo);
+        //     nodoPadre.hijos.slice(indice, 1);
+        // };
+
+        function eliminarHijo(padre, nombreHijo) {
+            // Filtrar el array 'hijos' del padre para obtener los hijos que no tengan el nombre a eliminar
+            padre.hijos = padre.hijos.filter(hijo => hijo.nombre !== nombreHijo);
+
+            // Recursivamente llamar la función 'eliminarHijo' para cada hijo del padre actual
+            padre.hijos.forEach(hijo => eliminarHijo(hijo, nombreHijo));
+        }
 
         //Funcion para listar el objeto de árbol
         function ListarArbol(lista) {
@@ -89,6 +102,22 @@
                     conyuge: "Pepa",
                     añoNacConyuge: 1940,
                     hijos: []
+                },
+                {
+                    nombre: "Juan",
+                    añoNacim: 1923,
+                    sexo: "Masculino",
+                    conyuge: "Pepa2",
+                    añoNacConyuge: 1940,
+                    hijos: []
+                },
+                {
+                    nombre: "Manolo",
+                    añoNacim: 1923,
+                    sexo: "Masculino",
+                    conyuge: "Pepas",
+                    añoNacConyuge: 1940,
+                    hijos: []
                 }
             ]
         }
@@ -98,8 +127,11 @@
         // console.log(añadirHijo(padre));
         // añadirHijo(padre);
         //console.log(buscarIndice(padre, nombre2));
-        eliminarHijo(padre, padre, "Pepe");
-        console.log(ListarArbol(padre));
+        //eliminarHijo(padre, padre, "Pepe");
+        //console.log(ListarArbol(padre));
+        eliminarHijo(padre, "Juan");
+        console.log(padre); // Output: []
+
 
     </script>
 </head>
