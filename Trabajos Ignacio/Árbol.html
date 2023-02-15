@@ -19,50 +19,32 @@
             }
             return padre;
         };
+
         //Funcion que busca dentro de la lista un nodo recibiendo como parámetros la lista y el nombre del nodo a buscar
-        function buscar(lista, nombre) {
-            if (lista.nombre === nombre) {
-                return lista;
-            } else {
-                for (let i = 0; i < lista.hijos.length; i++) {
-                    const result = buscar(nombre, lista.hijos[i]);
-                    if (result) {
-                        return result;
-                    }
-                }
-                return null;
+        function buscar(nombrePadre, objeto = padre) {
+            // Comprobar si el objeto actual tiene el nombre buscado
+            if (objeto.nombre === nombrePadre) {
+                return objeto;
             }
-        };
-        //Funcion buscarIndice, similar a buscar(lista, nombre). La diferencia se haya en que en vez de devolverte el objeto, te devuleve el indice del objeto (como de bajo esta en el árbol).
-        function buscarIndice(lista, nombre) {
-            if (lista.nombre === nombre) {
-                return 0;
-            } else {
-                for (let i = 0; i < lista.hijos.length; i++) {
-                    const result = buscarIndice(nombre, lista.hijos[i]);
-                    if (result) {
-                        return i;
-                    }
+
+            // Iterar sobre los hijos del objeto actual
+            for (let i = 0; i < objeto.hijos.length; i++) {
+                let hijo = objeto.hijos[i];
+                // Llamar recursivamente la función 'buscar' en cada hijo del objeto actual
+                let resultado = buscar(nombrePadre, hijo);
+                if (resultado) {
+                    return resultado;
                 }
-                return null;
             }
+
+            // Si no se encontró el objeto con el nombre buscado, devolver 'null'
+            return null;
         }
 
         //Funcion para añadir un hijo
         function añadirHijo(nodo, nodoHijo, lista) {
             nodo.hijos.push(nodoHijo);
         };
-
-        //Funcion para eliminar un hijo 
-        // function eliminarHijo(lista, nombreHijo) {
-
-        //     if () {
-
-        //     }
-
-        //     let indice = buscarIndice(lista, nombreHijo);
-        //     nodoPadre.hijos.slice(indice, 1);
-        // };
 
         function eliminarHijo(padre, nombreHijo) {
             // Filtrar el array 'hijos' del padre para obtener los hijos que no tengan el nombre a eliminar
@@ -73,7 +55,7 @@
         }
 
         //Funcion para listar el objeto de árbol
-        function ListarArbol(lista) {
+        function ListarArbol(lista, ) {
             return lista;
         };
 
@@ -101,7 +83,14 @@
                     sexo: "Masculino",
                     conyuge: "Pepa",
                     añoNacConyuge: 1940,
-                    hijos: []
+                    hijos: [{
+                        nombre: "Manolo2",
+                        añoNacim: 1923,
+                        sexo: "Masculino",
+                        conyuge: "Pepas",
+                        añoNacConyuge: 1940,
+                        hijos: []
+                    }]
                 },
                 {
                     nombre: "Juan",
@@ -109,7 +98,14 @@
                     sexo: "Masculino",
                     conyuge: "Pepa2",
                     añoNacConyuge: 1940,
-                    hijos: []
+                    hijos: [{
+                        nombre: "Manolo3",
+                        añoNacim: 1923,
+                        sexo: "Masculino",
+                        conyuge: "Pepas",
+                        añoNacConyuge: 1940,
+                        hijos: []
+                    }]
                 },
                 {
                     nombre: "Manolo",
@@ -117,7 +113,14 @@
                     sexo: "Masculino",
                     conyuge: "Pepas",
                     añoNacConyuge: 1940,
-                    hijos: []
+                    hijos: [{
+                        nombre: "Manolo4",
+                        añoNacim: 1923,
+                        sexo: "Masculino",
+                        conyuge: "Pepas",
+                        añoNacConyuge: 1940,
+                        hijos: []
+                    }]
                 }
             ]
         }
@@ -129,8 +132,11 @@
         //console.log(buscarIndice(padre, nombre2));
         //eliminarHijo(padre, padre, "Pepe");
         //console.log(ListarArbol(padre));
-        eliminarHijo(padre, "Juan");
-        console.log(padre); // Output: []
+        //eliminarHijo(padre, "Manolo4");
+        //console.log(padre); // Output: []
+        let resultado = buscar("Pepe");
+        console.log(resultado); // Output: {nombre: "Javier", añoNacim: 1923, sexo: "Masculino", conyuge: "Milagros", añoNacConyuge: 1940, hijos: Array(1)}
+
 
 
     </script>
