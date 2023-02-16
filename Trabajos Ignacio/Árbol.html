@@ -55,13 +55,14 @@
         }
 
         //Funcion para listar el objeto de árbol
-        function ListarArbol(lista, ) {
-            return lista;
+        function ListarArbol(lista) {
+            return JSON.stringify(lista, null, 2);
         };
 
         //Funcion para convertir el nodo a JSON
-        function convertirAJSON(nodo, lista) {
-            return JSON.stringify(nodo)
+        function convertirAJSON(nodo) {
+            objetoJSON = JSON.stringify(nodo)
+            return objetoJSON;
         };
 
         //Funcion que recibe un string y devuleve un objeto en javascript
@@ -124,21 +125,8 @@
                 }
             ]
         }
-        nombre2 = "Javier";
-        nombre3 = "Pepe";
-        //console.log(buscar(crearNodoPadre(), nombre2));
-        // console.log(añadirHijo(padre));
-        // añadirHijo(padre);
-        //console.log(buscarIndice(padre, nombre2));
-        //eliminarHijo(padre, padre, "Pepe");
-        //console.log(ListarArbol(padre));
-        //eliminarHijo(padre, "Manolo4");
-        //console.log(padre); // Output: []
-        let resultado = buscar("Pepe");
-        console.log(resultado); // Output: {nombre: "Javier", añoNacim: 1923, sexo: "Masculino", conyuge: "Milagros", añoNacConyuge: 1940, hijos: Array(1)}
-
-
-
+        cadenaJSON = convertirAJSON(padre);
+        console.log(leerJSON(cadenaJSON));
     </script>
 </head>
 
